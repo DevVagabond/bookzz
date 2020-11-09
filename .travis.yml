@@ -3,11 +3,11 @@ language: generic
 
 deploy:
   provider: elasticbeanstalk
-  region: ap-southeast-1
-  app: bookzz-backend
-  env: BookzzBackend-env
-  bucket_name: elasticbeanstalk-ap-southeast-1-334708000698
-  bucket_path: bookzz-backend
+  region: ap-southeast-2
+  app: hackathon-bookzz-app
+  env: HackathonBookzzApp-env
+  bucket_name: elasticbeanstalk-ap-southeast-2-334708000698
+  bucket_path: hackathon-bookzz-app
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
