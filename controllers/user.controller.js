@@ -22,7 +22,6 @@ const login = async (req, res, next) => {
         email: req.body.email,
       },
     });
-
     if (!user) {
       return helper.OK(res, 'Username or password is incorrect', null, 400);
     }
@@ -30,7 +29,9 @@ const login = async (req, res, next) => {
     if (!matchPassword) {
       return helper.OK(res, 'Username or password is incorrect', null, 400);
     }
-    const accessToken = jwt.sign({ user }, process.env.SECRET_KEY);
+
+    const { email, id } = user;
+    const accessToken = jwt.sign({ user: { email, id } }, process.env.SECRET_KEY);
     return helper.OK(res, 'Login successfully', { accessToken });
   } catch (err) {
     next(err);
